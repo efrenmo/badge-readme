@@ -185,7 +185,7 @@ class Credly:
             return None
         return "\n".join(
             map(
-                lambda it: f'<img src="{it["original_img"]}" width="100" height="100" alt="{it["title"]}" style="object-fit: contain; background: none;">',
+                lambda it: f'<svg width="100" height="100"><image href="{it["img"]}" width="100" height="100" preserveAspectRatio="xMidYMid meet"/></svg>',
                 badges,
             )
         )
