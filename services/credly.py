@@ -69,18 +69,34 @@ class Credly:
     #         )
     #     )
 
+    ###### 2
+    # def generate_md_format(self, badges):
+    # if not badges:
+    #     return None
+    # return "\n".join(
+    #     map(
+    #         # lambda it: f'<a href="{it["href"]}" title="{it["title"]}"><img src="{it["img"]}" width="{BADGE_SIZE}" height="{BADGE_SIZE}" alt="{it["title"]}"></a>',
+    #         # badges,
+    #         lambda it: f'<a href="{it["href"]}" title="{it["title"]}"><img src="{it["img"]}" width="110" height="110" alt="{it["title"]}"></a>',
+    #         badges,
+    #     )
+    # )
+
+
+    ##### 3
+
     def generate_md_format(self, badges):
     if not badges:
         return None
-    return "\n".join(
+    badges_html = "\n".join(
         map(
-            # lambda it: f'<a href="{it["href"]}" title="{it["title"]}"><img src="{it["img"]}" width="{BADGE_SIZE}" height="{BADGE_SIZE}" alt="{it["title"]}"></a>',
-            # badges,
             lambda it: f'<a href="{it["href"]}" title="{it["title"]}"><img src="{it["img"]}" width="110" height="110" alt="{it["title"]}"></a>',
             badges,
         )
     )
-
+    return f'<div style="display: flex; flex-wrap: wrap; gap: 10px;">\n{badges_html}\n</div>'
+    
+    
     def get_markdown(self):
         badges_html = (
             self.return_badges_html()[0:NUMBER_LAST_BADGES]
