@@ -74,7 +74,9 @@ class Credly:
         return None
     return "\n".join(
         map(
-            lambda it: f'<a href="{it["href"]}" title="{it["title"]}"><img src="{it["img"]}" width="{BADGE_SIZE}" height="{BADGE_SIZE}" alt="{it["title"]}"></a>',
+            # lambda it: f'<a href="{it["href"]}" title="{it["title"]}"><img src="{it["img"]}" width="{BADGE_SIZE}" height="{BADGE_SIZE}" alt="{it["title"]}"></a>',
+            # badges,
+            lambda it: f'<a href="{it["href"]}" title="{it["title"]}"><img src="{it["img"]}" width="110" height="110" alt="{it["title"]}"></a>',
             badges,
         )
     )
