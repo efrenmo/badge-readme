@@ -85,16 +85,27 @@ class Credly:
 
     ##### 3
 
-    def generate_md_format(self, badges):
+    # def generate_md_format(self, badges):
+    # if not badges:
+    #     return None
+    # return "\n".join(
+    #     map(
+    #         lambda it: f'[![{it["title"]}]({it["img"]})]({it["href"]} "{it["title"]}")<!-- {{"width":"110px","height":"110px"}} -->',
+    #         badges,
+    #     )
+    # )
+    
+    #### 4
+
+   def generate_md_format(self, badges):
     if not badges:
         return None
     return "\n".join(
         map(
-            lambda it: f'[![{it["title"]}]({it["img"]})]({it["href"]} "{it["title"]}")<!-- {{"width":"110px","height":"110px"}} -->',
+            lambda it: f'<a href="{it["href"]}" title="{it["title"]}"><img src="{it["img"]}" width="100" height="100" alt="{it["title"]}"></a>',
             badges,
         )
     )
-    
     
     def get_markdown(self):
         badges_html = (
