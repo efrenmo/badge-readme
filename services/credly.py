@@ -170,12 +170,22 @@ class Credly:
         soup = BeautifulSoup(data, "lxml")
         return soup.findAll("a", {"class": "cr-public-earned-badge-grid-item"})
 
+    # def generate_md_format(self, badges):
+    #     if not badges:
+    #         return None
+    #     return "\n".join(
+    #         map(
+    #             lambda it: f'<a href="{it["href"]}" title="{it["title"]}"><img src="{it["img"]}" width="100" height="100" alt="{it["title"]}"></a>',
+    #             badges,
+    #         )
+    #     )
+
     def generate_md_format(self, badges):
         if not badges:
             return None
         return "\n".join(
             map(
-                lambda it: f'<a href="{it["href"]}" title="{it["title"]}"><img src="{it["img"]}" width="100" height="100" alt="{it["title"]}"></a>',
+                lambda it: f'<img src="{it["original_img"]}" width="100" height="100" alt="{it["title"]}" style="object-fit: contain; background: none;">',
                 badges,
             )
         )
